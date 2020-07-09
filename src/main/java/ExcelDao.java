@@ -1,7 +1,7 @@
 import lombok.Data;
 
 @Data
-public class excelDao {
+public class ExcelDao {
     private String id;
     private String exampleId;
     private String bugTitle;

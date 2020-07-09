@@ -1,7 +1,7 @@
 import lombok.Data;
 
 @Data
-public class config {
+public class Config {
     private String url;
     private String name;
     private String password;

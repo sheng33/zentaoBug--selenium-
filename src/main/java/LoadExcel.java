@@ -5,22 +5,22 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class loadExcel {
-    List<excelDao> excelDaoList = null;
+public class LoadExcel {
+    List<ExcelDao> excelDaoList = null;
     InputStream is = null;
     Workbook excel = null;
     OutputStream out = null;
     String path;
-    public loadExcel(String path) throws IOException, InvalidFormatException {
+    public LoadExcel(String path) throws IOException, InvalidFormatException {
         this.path = path;
-        this.excelDaoList =  new ArrayList<excelDao>();;
+        this.excelDaoList =  new ArrayList<ExcelDao>();;
         this.is = new FileInputStream(new File(path));;
         this.excel = WorkbookFactory.create(is);
         is.close();
     }
 
-    public  config readConfig() throws IOException, InvalidFormatException {
-        config config = new config();
+    public Config readConfig() throws IOException, InvalidFormatException {
+        Config config = new Config();
         // ???????????
         Sheet sheet = excel.getSheetAt(0);
         Row row = sheet.getRow(1);
@@ -59,7 +59,7 @@ public class loadExcel {
         return count;
     }
 
-    public  List<excelDao> readXlSX() throws Exception {
+    public  List<ExcelDao> readXlSX() throws Exception {
         // ???????????
             Sheet sheet = excel.getSheetAt(0);
             //??????????
@@ -68,7 +68,7 @@ public class loadExcel {
                 if (row == null) {
                     continue;
                 }
-                excelDao stu = new excelDao();
+                ExcelDao stu = new ExcelDao();
                 Cell id = row.getCell(0);
                 stu.setId(id.getStringCellValue());
                 Cell exampleId = row.getCell(1);

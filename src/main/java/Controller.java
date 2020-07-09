@@ -9,15 +9,12 @@ import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
-import java.util.List;
-import java.util.logging.Filter;
 
 
 public class Controller {
     private Thread thread;
-    private zentao xt = null;
+    private ZenTao xt = null;
     @FXML
     private Button start;
 
@@ -68,7 +65,7 @@ public class Controller {
         );
         File result =fileChooser.showOpenDialog(null);
         System.out.println(result.getAbsolutePath());
-        xt = new zentao(result.getAbsolutePath());
+        xt = new ZenTao(result.getAbsolutePath());
         System.out.println(result.getAbsolutePath());
         String[] strings = result.getAbsolutePath().split("\\\\");
         fileName.setText(strings[strings.length-1]);
